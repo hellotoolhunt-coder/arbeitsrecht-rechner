@@ -1,35 +1,121 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abfindungsrechner: Höhe der Abfindung berechnen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abfindung berechnen: Höhe, Steuern und Verhandlungstipps</title>
+    <meta name="description" content="Wie hoch ist meine Abfindung? Berechnen Sie Ihre Abfindung nach der 0,5-Regel. Tipps zur Fünftelregelung (Steuern) und wie Sie mehr Abfindung verhandeln.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- SEO Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Abfindung berechnen: Höhe, Steuern und Verhandlungstipps",
+      "description": "Wie hoch ist meine Abfindung? Berechnen Sie Ihre Abfindung nach der 0,5-Regel. Tipps zur Fünftelregelung (Steuern) und wie Sie mehr Abfindung verhandeln.",
+      "inLanguage": "de-DE",
+      "datePublished": "2026-10-18",
+      "dateModified": "2026-10-18",
+      "author": {
+        "@type": "Organization",
+        "name": "Arbeitsrecht-Rechner"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Arbeitsrecht-Rechner"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://arbeitsrechtrechner.de/abfindung.html"
+      }
+    }
+    </script>
+    <style>
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid var(--border); padding: 10px; text-align: left; }
+        th { background-color: #f8fafc; font-weight: 600; }
+        blockquote { background-color: #f1f5f9; border-left: 4px solid var(--primary-light); padding: 15px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; color: var(--text-main); }
+    </style>
 </head>
 <body>
-<header><div class="header-content"><a href="index.html" class="logo">⚖️ Arbeitsrecht-Rechner</a><nav><a href="index.html">Rechner</a></nav></div></header>
+<header>
+    <div class="header-content">
+        <a href="index.html" class="logo">⚖️ Arbeitsrechtsrechner</a>
+        <nav>
+            <a href="index.html">Rechner</a>
+            <a href="aufhebungsvertrag.html">Aufhebungsvertrag</a>
+            <a href="fristlose-kuendigung.html">Fristlose Kündigung</a>
+            <a href="kuendigungsfrist.html">Kündigungsfrist</a>
+        </nav>
+    </div>
+</header>
+
 <div class="container">
-    <h1>Abfindung berechnen</h1>
-    <p>Die Faustregel für eine Abfindung bei betriebsbedingter Kündigung lautet: <strong>0,5 Monatsgehälter pro Jahr der Betriebszugehörigkeit.</strong></p>
+    <a href="index.html" class="back-link">← Zurück zum Rechner</a>
     
-    <div class="calculator-container" style="margin: 20px 0; box-shadow: none; border: 2px solid var(--border);">
+    <article>
+      <h1>Abfindung berechnen: Höhe, Steuern und Verhandlungstipps</h1>
+
+      <p>Wenn ein Arbeitsverhältnis endet, steht oft die Frage nach einer Abfindung im Raum. Viele Arbeitnehmer glauben, sie hätten einen gesetzlichen Anspruch darauf. Dem ist jedoch nicht so. Dieser Ratgeber erklärt, wie Sie Ihre Abfindung berechnen, wie Sie Steuern sparen und wie Sie bei Verhandlungen am besten vorgehen.</p>
+
+      <h2>Die Faustregel: So berechnen Sie Ihre Abfindung</h2>
+      <p>Es gibt keinen gesetzlichen Anspruch auf eine Abfindung, es sei denn, ein Tarifvertrag oder ein Sozialplan sieht dies vor. In der Praxis hat sich jedoch eine bewährte Faustregel etabliert:</p>
+      <ul>
+        <li><strong>0,5 Bruttomonatsgehälter pro vollendetem Jahr der Betriebszugehörigkeit.</strong></li>
+      </ul>
+      <p>Ein Beispiel: Wenn Sie 10 Jahre im Unternehmen waren und ein Bruttomonatsgehalt von 4.000 € bezogen haben, liegt die durchschnittliche Abfindung bei 10 x 0,5 x 4.000 € = <strong>20.000 €</strong>. Je nach Verhandlungssituation (insbesondere wenn der Arbeitgeber dringend Personal abbauen muss) können Sie oft auch 0,75 oder sogar 1,0 Monatsgehälter pro Jahr herausholen.</p>
+
+      <!-- Mini-Calculator -->
+      <div class="calculator-container" style="margin: 30px 0; box-shadow: none; border: 2px solid var(--border);">
+        <h3 style="text-align: center; margin-bottom: 20px; color: var(--primary);">Schnellrechner: Abfindung schätzen</h3>
         <div class="form-group">
             <label>Bruttomonatsgehalt (€)</label>
-            <input type="number" id="abfGehalt" placeholder="z.B. 3500" oninput="calcAbfindung()">
+            <input type="number" id="abfGehalt" placeholder="z.B. 3500" oninput="calcAbfindung()" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
         </div>
         <div class="form-group">
             <label>Jahre der Betriebszugehörigkeit</label>
-            <input type="number" id="abfJahre" placeholder="z.B. 5" oninput="calcAbfindung()">
+            <input type="number" id="abfJahre" placeholder="z.B. 5" oninput="calcAbfindung()" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
         </div>
-        <div class="results-box active" id="abfResult" style="display:none; background:#e0f2fe; border-color:#bae6fd;">
-            <div class="result-row total" style="color:var(--primary); border-top:none; font-size:24px;">
+        <div class="results-box active" id="abfResult" style="display:none; background:#e0f2fe; border-color:#bae6fd; padding: 15px; border-radius: 5px;">
+            <div class="result-row total" style="color:var(--primary); border-top:none; font-size:20px; font-weight: bold; display:flex; justify-content:space-between;">
                 <span>Geschätzte Abfindung:</span><span id="abfOut">0,00 €</span>
             </div>
         </div>
-    </div>
-    <p><em>Hinweis: Dies ist nur eine Faustregel. Im Arbeitsrecht gibt es viele Stellschrauben, um eine höhere Abfindung zu verhandeln. Konsultieren Sie im Zweifel einen Anwalt.</em></p>
+      </div>
+
+      <h2>Steuern sparen mit der Fünftelregelung</h2>
+      <p>Eine Abfindung ist steuerpflichtig. Da sie jedoch in einem einzigen Jahr ausgezahlt wird, würde sie Sie in eine extrem hohe Steuerprogression drücken. Deshalb greift hier die <strong>Fünftelregelung (§ 34 EStG)</strong>.</p>
+      <p>Das Finanzamt tut so, als wäre die Abfindung auf fünf Jahre verteilt worden. Das spart in der Regel mehrere Tausend Euro Steuern. Achten Sie darauf, dass Ihr Arbeitgeber die Abfindung im Arbeitsvertrag oder Aufhebungsvertrag ausdrücklich als "Entschädigung für den Verlust des Arbeitsplatzes" deklariert. Nur dann kann die Fünftelregelung angewendet werden.</p>
+
+      <h2>Muss ich die Abfindung zurückzahlen?</h2>
+      <p>Wenn Sie eine Abfindung erhalten und kurz darauf eine neue Stelle antreten, müssen Sie die Abfindung in der Regel <strong>nicht</strong> zurückzahlen. Etwas anderes gilt nur, wenn im Aufhebungsvertrag oder Sozialplan ausdrücklich eine Rückzahlungsklausel (z.B. bei einer neuen Stelle innerhalb von 3 Monaten) vereinbart wurde. Prüfen Sie den Vertrag hierzu genau.</p>
+
+      <h2>Wie verhandele ich eine höhere Abfindung?</h2>
+      <p>Die 0,5-Regel ist nur ein Richtwert. Ihr Verhandlungshebel hängt von mehreren Faktoren ab:</p>
+      <ul>
+        <li><strong>Wie dringend will der Arbeitgeber Sie loswerden?</strong> Wenn ein Betriebsrat existiert und Klagen drohen, ist der Arbeitgeber eher bereit, mehr zu zahlen.</li>
+        <li><strong>Wie gut sind Ihre Erfolgsaussichten bei einer Kündigungsschutzklage?</strong> Wenn die Kündigung formal fehlerhaft ist, können Sie eine höhere Abfindung herausholen.</li>
+        <li><strong>Ihr Alter und Ihre Betriebszugehörigkeit.</strong> Ältere Arbeitnehmer mit langer Betriebszugehörigkeit haben es schwerer, einen neuen Job zu finden, was oft höhere Abfindungen rechtfertigt.</li>
+      </ul>
+
+      <h2>Was kostet ein Anwalt für die Verhandlung?</h2>
+      <p>Ein Fachanwalt für Arbeitsrecht prüft nicht nur den Vertrag, sondern kann auch eine deutlich höhere Abfindung aushandeln. Die Kosten richten sich nach dem Streitwert (meist 3 Monatsgehälter). Wenn Sie eine <strong>Arbeitsrechtsschutzversicherung</strong> haben, übernimmt diese oft die gesamten Kosten (abzüglich Ihrer Selbstbeteiligung).</p>
+      <p>Berechnen Sie Ihre voraussichtlichen Anwaltskosten jetzt mit unserem kostenlosen <a href="index.html">RVG-Rechner</a>. Lesen Sie auch unseren Ratgeber zum <a href="aufhebungsvertrag.html">Aufhebungsvertrag</a>, um die Sperrzeit beim Arbeitslosengeld zu vermeiden.</p>
+
+      <p><em>Wichtiger Hinweis: Dieser Artikel dient der allgemeinen Information und stellt keine verbindliche Rechtsberatung dar. Konsultieren Sie im Zweifelsfall immer einen Fachanwalt für Arbeitsrecht.</em></p>
+    </article>
 </div>
-<footer><div class="footer-links"><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></div></footer>
+
+<footer>
+    <div class="footer-links">
+        <a href="impressum.html">Impressum</a> | 
+        <a href="datenschutz.html">Datenschutz</a> | 
+        <a href="kontakt.html">Kontakt</a>
+    </div>
+    <p>&copy; 2026 Arbeitsrechtsrechner. Alle Angaben ohne Gewähr. Dies ist keine Rechtsberatung.</p>
+</footer>
 
 <script>
     function calcAbfindung() {
