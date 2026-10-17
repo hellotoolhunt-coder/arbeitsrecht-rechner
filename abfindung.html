@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abfindungsrechner: Höhe der Abfindung berechnen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="header-content"><a href="index.html" class="logo">⚖️ Arbeitsrecht-Rechner</a><nav><a href="index.html">Rechner</a></nav></div></header>
+<div class="container">
+    <h1>Abfindung berechnen</h1>
+    <p>Die Faustregel für eine Abfindung bei betriebsbedingter Kündigung lautet: <strong>0,5 Monatsgehälter pro Jahr der Betriebszugehörigkeit.</strong></p>
+    
+    <div class="calculator-container" style="margin: 20px 0; box-shadow: none; border: 2px solid var(--border);">
+        <div class="form-group">
+            <label>Bruttomonatsgehalt (€)</label>
+            <input type="number" id="abfGehalt" placeholder="z.B. 3500" oninput="calcAbfindung()">
+        </div>
+        <div class="form-group">
+            <label>Jahre der Betriebszugehörigkeit</label>
+            <input type="number" id="abfJahre" placeholder="z.B. 5" oninput="calcAbfindung()">
+        </div>
+        <div class="results-box active" id="abfResult" style="display:none; background:#e0f2fe; border-color:#bae6fd;">
+            <div class="result-row total" style="color:var(--primary); border-top:none; font-size:24px;">
+                <span>Geschätzte Abfindung:</span><span id="abfOut">0,00 €</span>
+            </div>
+        </div>
+    </div>
+    <p><em>Hinweis: Dies ist nur eine Faustregel. Im Arbeitsrecht gibt es viele Stellschrauben, um eine höhere Abfindung zu verhandeln. Konsultieren Sie im Zweifel einen Anwalt.</em></p>
+</div>
+<footer><div class="footer-links"><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></div></footer>
+
+<script>
+    function calcAbfindung() {
+        const g = parseFloat(document.getElementById('abfGehalt').value);
+        const j = parseFloat(document.getElementById('abfJahre').value);
+        const box = document.getElementById('abfResult');
+        if (g > 0 && j > 0) {
+            const val = g * 0.5 * j;
+            document.getElementById('abfOut').innerText = val.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+            box.style.display = 'block';
+        } else { box.style.display = 'none'; }
+    }
+</script>
+</body>
+</html>

@@ -4,154 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arbeitsrecht Kosten Rechner | Anwaltskosten berechnen</title>
-    <meta name="description" content="Berechnen Sie kostenlos Ihre voraussichtlichen Anwaltskosten im Arbeitsrecht (RVG). Inklusive Berechnung für Rechtsschutzversicherungen und Erklärung des Streitwerts.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1e3a8a; /* Deep Trust Blue */
-            --primary-light: #2563eb;
-            --primary-hover: #1d4ed8;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #475569;
-            --border: #e2e8f0;
-            --success-bg: #f0fdf4;
-            --success-border: #bbf7d0;
-            --success-text: #166534;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--card-bg);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            padding: 16px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .header-content {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .logo {
-            font-weight: 700;
-            font-size: 20px;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        /* Hero & Calculator Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
-            color: white;
-            padding: 60px 20px 40px;
-            text-align: center;
-        }
-        .hero h1 { font-size: 32px; margin-bottom: 16px; font-weight: 700; }
-        .hero p { font-size: 18px; max-width: 600px; margin: 0 auto; opacity: 0.9; }
-
-        .calculator-container {
-            background-color: var(--card-bg);
-            width: 100%;
-            max-width: 600px;
-            border-radius: 12px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            padding: 32px;
-            margin: -30px auto 40px;
-            position: relative;
-            z-index: 10;
-            border: 1px solid var(--border);
-        }
-
-        /* Form Styles */
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 15px; font-weight: 600; margin-bottom: 8px; }
-        .input-wrapper { position: relative; }
-        .input-wrapper input[type="number"] {
-            width: 100%; padding: 14px 16px; font-size: 16px; border: 2px solid var(--border);
-            border-radius: 8px; background-color: #f8fafc; transition: all 0.2s ease; outline: none;
-        }
-        .input-wrapper input[type="number"]:focus {
-            border-color: var(--primary-light); background-color: #ffffff; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-        .input-wrapper .currency-symbol {
-            position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-weight: 600;
-        }
-
-        /* Toggle Switch */
-        .toggle-group { background-color: #f1f5f9; border: 1px solid var(--border); padding: 16px; border-radius: 8px; margin-bottom: 24px; }
-        .toggle-label { display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 15px; font-weight: 500; }
-        .switch { position: relative; display: inline-block; width: 48px; height: 24px; }
-        .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #cbd5e1; transition: .3s; border-radius: 24px; }
-        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; }
-        input:checked + .slider { background-color: var(--primary-light); }
-        input:checked + .slider:before { transform: translateX(24px); }
-        .insurance-input { margin-top: 16px; display: none; }
-
-        .btn-calculate {
-            width: 100%; padding: 16px; background-color: var(--primary-light); color: white; border: none;
-            border-radius: 8px; font-size: 18px; font-weight: 600; cursor: pointer; transition: background-color 0.2s ease; margin-bottom: 24px;
-        }
-        .btn-calculate:hover { background-color: var(--primary-hover); }
-
-        /* Results */
-        .results-box { background-color: var(--success-bg); border: 1px solid var(--success-border); border-radius: 8px; padding: 20px; display: none; opacity: 0; transition: opacity 0.4s ease; }
-        .results-box.active { display: block; opacity: 1; }
-        .result-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 15px; }
-        .result-row:last-child { margin-bottom: 0; }
-        .result-row.total { border-top: 1px solid var(--success-border); padding-top: 12px; margin-top: 12px; font-weight: 700; font-size: 18px; color: var(--success-text); }
-        .insurance-result { margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--success-border); display: none; }
-        .insurance-result .result-row { color: #b91c1c; font-weight: 700; }
-
-        /* Content Sections */
-        .content-section { max-width: 800px; margin: 0 auto 60px; padding: 0 20px; }
-        .content-section h2 { font-size: 24px; color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid var(--border); padding-bottom: 10px; }
-        .content-section p { margin-bottom: 16px; color: var(--text-muted); }
-        .content-section ul { margin-left: 20px; margin-bottom: 20px; color: var(--text-muted); }
-        .content-section li { margin-bottom: 8px; }
-
-        /* FAQ */
-        .faq-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 16px; padding: 20px; }
-        .faq-item h3 { font-size: 18px; margin-bottom: 10px; color: var(--text-main); }
-        .faq-item p { margin-bottom: 0; }
-
-        /* Footer */
-        footer { background-color: #0f172a; color: #94a3b8; padding: 40px 20px; text-align: center; font-size: 14px; }
-        footer a { color: #94a3b8; text-decoration: none; margin: 0 10px; }
-        footer a:hover { color: white; }
-        .footer-links { margin-bottom: 16px; }
-
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 26px; }
-            .calculator-container { padding: 24px; margin: -20px 16px 40px; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header>
     <div class="header-content">
-        <a href="#" class="logo">⚖️ Arbeitsrecht-Rechner</a>
+        <a href="index.html" class="logo">⚖️ Arbeitsrecht-Rechner</a>
+        <nav>
+            <a href="aufhebungsvertrag.html">Aufhebungsvertrag</a>
+            <a href="fristlose-kuendigung.html">Fristlose Kündigung</a>
+            <a href="abfindung.html">Abfindung</a>
+            <a href="rechtsschutz.html">Rechtsschutz</a>
+        </nav>
     </div>
 </header>
 
@@ -168,7 +35,6 @@
             <span class="currency-symbol">€</span>
         </div>
     </div>
-
     <div class="toggle-group">
         <label class="toggle-label" for="hasInsurance">
             <span>Ich habe eine Rechtsschutzversicherung</span>
@@ -185,145 +51,74 @@
             </div>
         </div>
     </div>
-
     <button class="btn-calculate" onclick="calculate()">Kosten jetzt berechnen</button>
 
     <div id="resultBox" class="results-box">
-        <div class="result-row">
-            <span>Streitwert (3x Gehalt):</span> 
-            <span id="out-streitwert"></span>
-        </div>
-        <div class="result-row">
-            <span>Anwaltskosten (Netto):</span> 
-            <span id="out-netto"></span>
-        </div>
-        <div class="result-row">
-            <span>MwSt. (19%):</span> 
-            <span id="out-mwst"></span>
-        </div>
-        <div class="result-row total">
-            <span>Gesamtkosten (Brutto):</span> 
-            <span id="out-brutto"></span>
-        </div>
-        
+        <div class="result-row"><span>Streitwert (3x Gehalt):</span><span id="out-streitwert"></span></div>
+        <div class="result-row"><span>Anwaltskosten (Netto):</span><span id="out-netto"></span></div>
+        <div class="result-row"><span>MwSt. (19%):</span><span id="out-mwst"></span></div>
+        <div class="result-row total"><span>Gesamtkosten (Brutto):</span><span id="out-brutto"></span></div>
         <div id="insurance-result" class="insurance-result">
-            <div class="result-row">
-                <span>Ihre Eigenbeteiligung:</span> 
-                <span id="out-eigenbeteiligung"></span>
-            </div>
+            <div class="result-row"><span>Ihre Eigenbeteiligung:</span><span id="out-eigenbeteiligung"></span></div>
         </div>
     </div>
 </div>
 
-<div class="content-section">
+<div class="container">
     <h2>So funktioniert die Berechnung</h2>
     <p>Die Kosten für einen Anwalt im Arbeitsrecht sind in Deutschland gesetzlich geregelt. Grundlage ist das <strong>Rechtsanwaltsvergütungsgesetz (RVG)</strong>.</p>
     <p>Bei einer Kündigungsschutzklage wird der sogenannte <strong>Streitwert</strong> in der Regel auf drei Bruttomonatsgehälter festgesetzt. Unser Rechner nutzt diese Formel, um die Grundgebühr zu ermitteln.</p>
     <ul>
-        <li><strong>1,3 Verfahrensgebühr:</strong> Die Grundgebühr für die Vertretung außerhalb und innerhalb des Gerichts.</li>
+        <li><strong>1,3 Verfahrensgebühr:</strong> Die Grundgebühr für die Vertretung.</li>
         <li><strong>1,2 Terminsgebühr:</strong> Fällt an, wenn ein Gerichtstermin stattfindet.</li>
-        <li><strong>Auslagenpauschale & MwSt.:</strong> Hinzu kommen 20 € Post- und Telekommunikationspauschale sowie 19% Mehrwertsteuer.</li>
+        <li><strong>Auslagenpauschale & MwSt.:</strong> Hinzu kommen 20 € Pauschale sowie 19% Mehrwertsteuer.</li>
     </ul>
-    <p><em>Hinweis: Wenn Sie eine Rechtsschutzversicherung haben, übernimmt diese oft die Kosten abzüglich Ihrer Selbstbeteiligung (meist 150 € bis 300 €). Aktivieren Sie den Schalter oben, um Ihre tatsächlichen Out-of-Pocket-Kosten zu sehen.</em></p>
-</div>
-
-<div class="content-section">
-    <h2>Häufig gestellte Fragen (FAQ)</h2>
-    
-    <div class="faq-item">
-        <h3>Wer zahlt die Anwaltskosten bei einer Kündigung?</h3>
-        <p>In der Regel zahlt jede Partei ihre eigenen Anwaltskosten (sogenannte Erstberatungskosten). Gewinnt der Arbeitnehmer den Prozess, muss der Arbeitgeber oft die Kosten des Arbeitsgerichts und die Anwaltskosten des Arbeitnehmers übernehmen. Bei einem Vergleich werden die Kosten häufig geteilt.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>Übernimmt die Rechtsschutzversicherung die Kosten?</h3>
-        <p>Ja, eine Arbeitsrechtsschutzversicherung übernimmt in der Regel die Anwalts- und Gerichtskosten für arbeitsrechtliche Streitigkeiten. Sie müssen meist nur eine feste Selbstbeteiligung (oft 150 € oder 300 €) selbst tragen. Wichtig: Die Versicherung muss vor der Kündigung abgeschlossen worden sein und Wartezeiten (meist 3 Monate) müssen eingehalten werden.</p>
-    </div>
-
-    <div class="faq-item">
-        <h3>Was ist eine Erstberatung und was kostet sie?</h3>
-        <p>Die Erstberatung ist das erste Gespräch mit dem Anwalt, um die Erfolgsaussichten zu klären. Die gesetzliche Gebühr für ein Erstberatungsgespräch ist auf maximal 190 € (netto) zzgl. MwSt. gedeckelt. Viele Anwälte verlangen eine Pauschale von ca. 100 € bis 190 €.</p>
-    </div>
+    <p><em>Tipp: Wenn Sie eine Rechtsschutzversicherung haben, aktivieren Sie den Schalter oben, um Ihre tatsächlichen Out-of-Pocket-Kosten zu sehen.</em></p>
 </div>
 
 <footer>
     <div class="footer-links">
-        <a href="#">Impressum</a> | 
-        <a href="#">Datenschutz</a> | 
-        <a href="#">Kontakt</a>
+        <a href="impressum.html">Impressum</a> | 
+        <a href="datenschutz.html">Datenschutz</a> | 
+        <a href="kontakt.html">Kontakt</a>
     </div>
     <p>&copy; 2026 Arbeitsrecht-Rechner. Alle Angaben ohne Gewähr. Dies ist keine Rechtsberatung.</p>
 </footer>
 
 <script>
     function getBaseFee(streitwert) {
-        if (streitwert <= 500) return 51;
-        if (streitwert <= 1000) return 88;
-        if (streitwert <= 1500) return 126;
-        if (streitwert <= 2000) return 164;
-        if (streitwert <= 3000) return 222;
-        if (streitwert <= 4000) return 280;
-        if (streitwert <= 5000) return 338;
-        if (streitwert <= 6000) return 396;
-        if (streitwert <= 7000) return 454;
-        if (streitwert <= 8000) return 512;
-        if (streitwert <= 9000) return 570;
-        if (streitwert <= 10000) return 628;
-        let base = 628;
-        let current = 10000;
-        while (current < streitwert) {
-            current += 2000;
-            base += 56;
-        }
-        return base;
+        if (streitwert <= 500) return 51; if (streitwert <= 1000) return 88; if (streitwert <= 1500) return 126;
+        if (streitwert <= 2000) return 164; if (streitwert <= 3000) return 222; if (streitwert <= 4000) return 280;
+        if (streitwert <= 5000) return 338; if (streitwert <= 6000) return 396; if (streitwert <= 7000) return 454;
+        if (streitwert <= 8000) return 512; if (streitwert <= 9000) return 570; if (streitwert <= 10000) return 628;
+        let base = 628; let current = 10000; while (current < streitwert) { current += 2000; base += 56; } return base;
     }
-
     function toggleInsurance() {
         const isChecked = document.getElementById('hasInsurance').checked;
         document.getElementById('insuranceInput').style.display = isChecked ? 'block' : 'none';
         document.getElementById('insurance-result').style.display = isChecked ? 'block' : 'none';
         calculate();
     }
-
-    function formatEuro(value) {
-        return value.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
-    }
-
+    function formatEuro(value) { return value.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }); }
     function calculate() {
         const gehalt = parseFloat(document.getElementById('gehalt').value);
         const resultBox = document.getElementById('resultBox');
-        
-        if (isNaN(gehalt) || gehalt <= 0) {
-            resultBox.classList.remove('active');
-            return;
-        }
-
+        if (isNaN(gehalt) || gehalt <= 0) { resultBox.classList.remove('active'); return; }
         const streitwert = gehalt * 3;
         const baseFee = getBaseFee(streitwert);
-        
-        const verfahrensgebuehr = baseFee * 1.3;
-        const terminsgebuehr = baseFee * 1.2;
-        const auslagen = 20;
-        
-        const netto = verfahrensgebuehr + terminsgebuehr + auslagen;
+        const netto = (baseFee * 1.3) + (baseFee * 1.2) + 20;
         const mwst = netto * 0.19;
         const brutto = netto + mwst;
-
         document.getElementById('out-streitwert').innerText = formatEuro(streitwert);
         document.getElementById('out-netto').innerText = formatEuro(netto);
         document.getElementById('out-mwst').innerText = formatEuro(mwst);
         document.getElementById('out-brutto').innerText = formatEuro(brutto);
-
         if (document.getElementById('hasInsurance').checked) {
-            const selbstbeteiligung = parseFloat(document.getElementById('selbstbeteiligung').value) || 0;
-            let eigenbeteiligung = selbstbeteiligung;
-            if (brutto < selbstbeteiligung) eigenbeteiligung = brutto;
-            document.getElementById('out-eigenbeteiligung').innerText = formatEuro(eigenbeteiligung);
+            const sb = parseFloat(document.getElementById('selbstbeteiligung').value) || 0;
+            document.getElementById('out-eigenbeteiligung').innerText = formatEuro(brutto < sb ? brutto : sb);
         }
-
         resultBox.classList.add('active');
     }
 </script>
-
 </body>
 </html>
