@@ -71,3 +71,18 @@ input:checked + .slider:before { transform: translateX(24px); }
     .container { padding: 24px; margin: 20px 16px; }
     nav { display: none; } /* Hide nav on mobile for simplicity */
 }
+/* Back to Home Button */
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--primary-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
