@@ -1,29 +1,186 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kündigungsfristen im Arbeitsrecht</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kündigungsfrist: Gesetzliche Fristen, Berechnung und Kosten</title>
+  <meta name="description" content="Kündigungsfrist nach §&nbsp;622 BGB: gesetzliche Fristen, Ausnahmen, Fristberechnung, Checklisten für Arbeitnehmer und Arbeitgeber sowie Kosten eines Kündigungsstreits.">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1d2330;
+      --muted: #5b6475;
+      --accent: #1f4e8c;
+      --border: #d9dee7;
+      --surface: #f4f6fa;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14171f;
+        --text: #e6e9f0;
+        --muted: #9aa3b5;
+        --accent: #7fb0ee;
+        --border: #2c3342;
+        --surface: #1c212c;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0 16px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+    }
+    article {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    h1 { font-size: 2rem; line-height: 1.25; margin: 0 0 8px; }
+    h2 {
+      font-size: 1.35rem;
+      margin: 2.2em 0 0.6em;
+      padding-bottom: 0.25em;
+      border-bottom: 1px solid var(--border);
+    }
+    p { margin: 0 0 1em; }
+    ul.plain { margin: 0 0 1em; padding-left: 1.3em; }
+    ul.plain li { margin: 0 0 0.5em; }
+    .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5em; }
+    .lead { font-size: 1.1rem; }
+    .checklist { list-style: none; padding: 0; margin: 0 0 1em; }
+    .checklist li { margin: 0 0 0.5em; }
+    .checklist label { display: flex; gap: 0.6em; align-items: flex-start; cursor: pointer; }
+    .checklist input { margin-top: 0.4em; flex: none; }
+    .table-wrap { overflow-x: auto; margin: 1.2em 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    caption { text-align: left; color: var(--muted); font-size: 0.85rem; padding-bottom: 0.5em; }
+    th, td { padding: 8px 12px; border-bottom: 1px solid var(--border); text-align: left; }
+    thead th { background: var(--surface); }
+    th.num, td.num { text-align: right; white-space: nowrap; }
+    tr.total td, tr.total th { font-weight: 700; background: var(--surface); }
+    a { color: var(--accent); }
+    footer { margin-top: 2.5em; padding-top: 1em; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--muted); }
+  </style>
 </head>
 <body>
-<header><div class="header-content"><a href="index.html" class="logo">⚖️ Arbeitsrecht-Rechner</a><nav><a href="index.html">Rechner</a></nav></div></header>
-<div class="container">
-    <h1>Kündigungsfristen: Was gilt für Sie?</h1>
-    <p>Die gesetzliche Kündigungsfrist beträgt laut § 622 BGB für Arbeitnehmer grundsätzlich <strong>4 Wochen zum Monatsende oder zum 15. eines Monats</strong>.</p>
+  <article>
+    <header>
+      <h1>Kündigungsfrist: Gesetzliche Fristen, Berechnung und Kosten</h1>
+      <p class="meta">Rechtsstand: <time datetime="2026-10-17">17. Oktober 2026</time></p>
+      <p class="lead">Die Kündigungsfrist bestimmt, wann ein Arbeitsverhältnis nach einer ordentlichen Kündigung endet. Arbeitnehmer kündigen grundsätzlich mit vier Wochen; für Arbeitgeber wächst die Frist mit der Betriebszugehörigkeit auf bis zu sieben Monate (§&nbsp;622 BGB).</p>
+    </header>
 
-    <h2>Verlängerte Fristen für Arbeitgeber</h2>
-    <p>Für den Arbeitgeber verlängert sich die Frist je nach Betriebszugehörigkeit:</p>
-    <ul>
-        <li>2 Jahre: 1 Monat zum Monatsende</li>
-        <li>5 Jahre: 2 Monate zum Monatsende</li>
-        <li>8 Jahre: 3 Monate zum Monatsende</li>
-        <li>10 Jahre: 4 Monate zum Monatsende</li>
-    </ul>
+    <section id="gesetzliche-fristen">
+      <h2>Die gesetzlichen Fristen nach §&nbsp;622 BGB</h2>
+      <p>Die Grundfrist beträgt vier Wochen zum 15. oder zum Ende eines Kalendermonats (§&nbsp;622 Abs. 1 BGB). Sie gilt für Arbeitnehmer stets und für Arbeitgeber in den ersten zwei Jahren. Danach verlängert sich nur die Arbeitgeberfrist (§&nbsp;622 Abs. 2 BGB):</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Kündigungsfristen des Arbeitgebers nach Dauer des Arbeitsverhältnisses</caption>
+          <thead>
+            <tr>
+              <th scope="col">Beschäftigungsdauer</th>
+              <th scope="col">Frist</th>
+              <th scope="col">Termin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">bis 2 Jahre</th><td>4 Wochen</td><td>15. oder Monatsende</td></tr>
+            <tr><th scope="row">ab 2 Jahren</th><td>1 Monat</td><td>Monatsende</td></tr>
+            <tr><th scope="row">ab 5 Jahren</th><td>2 Monate</td><td>Monatsende</td></tr>
+            <tr><th scope="row">ab 8 Jahren</th><td>3 Monate</td><td>Monatsende</td></tr>
+            <tr><th scope="row">ab 10 Jahren</th><td>4 Monate</td><td>Monatsende</td></tr>
+            <tr><th scope="row">ab 12 Jahren</th><td>5 Monate</td><td>Monatsende</td></tr>
+            <tr><th scope="row">ab 15 Jahren</th><td>6 Monate</td><td>Monatsende</td></tr>
+            <tr><th scope="row">ab 20 Jahren</th><td>7 Monate</td><td>Monatsende</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Zeiten vor Vollendung des 25. Lebensjahres zählen mit, weil die gegenteilige Regel in §&nbsp;622 Abs. 2 Satz 2 BGB gegen Unionsrecht verstößt (EuGH, C-555/07, Kücükdeveci).</p>
+    </section>
 
-    <h2>Öffentlicher Dienst</h2>
-    <p>Im öffentlichen Dienst gelten oft abweichende Tarifverträge (z.B. TVöD). Prüfen Sie dies in Ihrem Arbeitsvertrag.</p>
-</div>
-<footer><div class="footer-links"><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a> | <a href="kontakt.html">Kontakt</a></div></footer>
+    <section id="abweichungen">
+      <h2>Abweichungen und Sonderfälle</h2>
+      <ul class="plain">
+        <li><strong>Probezeit:</strong> höchstens sechs Monate, Frist zwei Wochen (§&nbsp;622 Abs. 3 BGB).</li>
+        <li><strong>Kleinbetriebe und Aushilfen:</strong> Bei höchstens 20 Arbeitnehmern (ohne Auszubildende) darf vertraglich nicht unter vier Wochen gekündigt werden, Aushilfen bis drei Monate können kürzer gebunden sein (§&nbsp;622 Abs. 5 BGB).</li>
+        <li><strong>Tarifvertrag:</strong> darf von §&nbsp;622 Abs. 1 bis 3 BGB abweichen (§&nbsp;622 Abs. 4 BGB).</li>
+        <li><strong>Längere Fristen:</strong> vertraglich möglich, für den Arbeitnehmer aber nie länger als für den Arbeitgeber (§&nbsp;622 Abs. 5 Satz 3, Abs. 6 BGB).</li>
+        <li><strong>Gesetzliche Sonderregeln:</strong> Schwerbehinderte mindestens vier Wochen (§&nbsp;169 SGB IX); Insolvenz höchstens drei Monate zum Monatsende (§&nbsp;113 InsO); Auszubildende nach der Probezeit nur außerordentlich (§&nbsp;22 BBiG).</li>
+      </ul>
+    </section>
+
+    <section id="berechnung">
+      <h2>Berechnung und Zugang</h2>
+      <p>Die Frist läuft ab Zugang der Kündigung (§&nbsp;130 BGB). Der Tag des Zugangs zählt nicht mit (§&nbsp;187 Abs. 1 BGB); eine Wochenfrist endet mit Ablauf des Tages, der dem Zugangstag entspricht (§&nbsp;188 Abs. 2 BGB). Beispiel: Geht die Kündigung eines Arbeitnehmers am 10. März zu, endet die Vierwochenfrist am 7. April; der nächste Termin ist der 15. April.</p>
+      <p>Ein Brief gilt als zugegangen, sobald unter gewöhnlichen Umständen mit der Leerung des Briefkastens zu rechnen ist, bei abendlichem Einwurf also erst am Folgetag. Am sichersten ist ein Bote, der Inhalt und Einwurf protokolliert.</p>
+      <p>Während der Kündigungsfrist bleibt das Arbeitsverhältnis voll bestehen: Vergütung und Pflichten laufen weiter. Eine Freistellung ist ohne vertragliche Grundlage nur bei überwiegendem Interesse des Arbeitgebers zulässig; Resturlaub lässt sich bei unwiderruflicher Freistellung anrechnen, wenn der Arbeitgeber dies klar erklärt. Wer statt der Kündigung einen Aufhebungsvertrag unterschreibt, riskiert eine Sperrzeit (§&nbsp;159 SGB III) und sollte die Frist zuvor prüfen lassen.</p>
+    </section>
+
+    <section id="form-und-schutz">
+      <h2>Form und Kündigungsschutz</h2>
+      <p>Die Kündigung braucht die Schriftform mit eigenhändiger Unterschrift; E-Mail oder Messenger genügen nicht (§&nbsp;623 BGB). Der Betriebsrat ist vorher anzuhören und kann innerhalb einer Woche Bedenken äußern (§&nbsp;102 BetrVG). Nach sechs Monaten Betriebszugehörigkeit und in Betrieben mit mehr als zehn Arbeitnehmern braucht der Arbeitgeber zusätzlich einen Kündigungsgrund (§&nbsp;1 Abs. 1, §&nbsp;23 Abs. 1 KSchG). Wer sich wehren will, muss binnen drei Wochen nach Zugang klagen (§&nbsp;4 KSchG).</p>
+      <p>Eine zu kurze Frist macht die Kündigung in der Regel nicht unwirksam; sie wird meist als Kündigung zum nächstzulässigen Termin ausgelegt. Der Arbeitsvertrag muss Kündigungsverfahren und Fristen benennen (§&nbsp;2 Abs. 1 Satz 2 Nr. 14 NachwG).</p>
+    </section>
+
+    <section id="checkliste-arbeitnehmer">
+      <h2>Checkliste für Arbeitnehmer</h2>
+      <ul class="checklist">
+        <li><label><input type="checkbox"> <span>Arbeitsvertrag, Tarifvertrag und Betriebsvereinbarung auf abweichende Fristen prüfen</span></label></li>
+        <li><label><input type="checkbox"> <span>Kündigungstermin (15. oder Monatsende) berechnen und den Zugang rechtzeitig einplanen</span></label></li>
+        <li><label><input type="checkbox"> <span>Schriftlich mit Originalunterschrift kündigen und den Empfang bestätigen lassen</span></label></li>
+        <li><label><input type="checkbox"> <span>Resturlaub (§&nbsp;7 Abs. 4 BUrlG), Überstunden und Zeugnis (§&nbsp;109 GewO) klären</span></label></li>
+        <li><label><input type="checkbox"> <span>Bei der Agentur für Arbeit arbeitssuchend melden, spätestens drei Tage nach Kenntnis des Endtermins (§&nbsp;38 SGB III); bei Eigenkündigung ohne wichtigen Grund droht eine Sperrzeit von bis zu zwölf Wochen (§&nbsp;159 SGB III)</span></label></li>
+      </ul>
+    </section>
+
+    <section id="checkliste-arbeitgeber">
+      <h2>Checkliste für Arbeitgeber</h2>
+      <ul class="checklist">
+        <li><label><input type="checkbox"> <span>Beginn und Dauer der Betriebszugehörigkeit exakt feststellen, Vorzeiten einbeziehen</span></label></li>
+        <li><label><input type="checkbox"> <span>Maßgebliche Frist aus Gesetz, Tarif- und Arbeitsvertrag ermitteln; eine vertraglich längere Frist geht vor</span></label></li>
+        <li><label><input type="checkbox"> <span>Sonderkündigungsschutz prüfen: Schwerbehinderung (§&nbsp;168 SGB IX), Schwangerschaft (§&nbsp;17 MuSchG), Elternzeit (§&nbsp;18 BEEG), Betriebsrat (§&nbsp;15 KSchG)</span></label></li>
+        <li><label><input type="checkbox"> <span>Kündigungsgrund nach dem KSchG und Sozialauswahl (§&nbsp;1 Abs. 3 KSchG) dokumentieren</span></label></li>
+        <li><label><input type="checkbox"> <span>Betriebsrat anhören (§&nbsp;102 BetrVG)</span></label></li>
+        <li><label><input type="checkbox"> <span>Schriftform wahren und den Zugang per Bote nachweisbar machen</span></label></li>
+      </ul>
+    </section>
+
+    <section id="kosten">
+      <h2>Kosten bei einem Kündigungsstreit</h2>
+      <p>Im ersten Rechtszug trägt jede Partei ihre Anwaltskosten selbst, auch wenn sie gewinnt (§&nbsp;12a Abs. 1 Satz 1 ArbGG). Der Streitwert beträgt höchstens drei Bruttomonatsgehälter (§&nbsp;42 Abs. 2 GKG); bei 4.000&nbsp;€ brutto sind das 12.000&nbsp;€. Die 1,0-Gebühr nach der RVG-Tabelle liegt dann bei 707,00&nbsp;€, die Tabellengebühr nach dem GKG bei 313,50&nbsp;€.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Rechenbeispiel: Streitwert 12.000&nbsp;€, erste Instanz, Arbeitsgericht</caption>
+          <thead>
+            <tr>
+              <th scope="col">Position</th>
+              <th scope="col" class="num">Ohne Vergleich (Urteil)</th>
+              <th scope="col" class="num">Mit Vergleich</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Verfahrensgebühr 1,3 (VV 3100 RVG)</th><td class="num">919,10&nbsp;€</td><td class="num">919,10&nbsp;€</td></tr>
+            <tr><th scope="row">Terminsgebühr 1,2 (VV 3104 RVG)</th><td class="num">848,40&nbsp;€</td><td class="num">848,40&nbsp;€</td></tr>
+            <tr><th scope="row">Einigungsgebühr 1,0 (VV 1000, 1003 RVG)</th><td class="num">–</td><td class="num">707,00&nbsp;€</td></tr>
+            <tr><th scope="row">Auslagenpauschale (VV 7002 RVG)</th><td class="num">20,00&nbsp;€</td><td class="num">20,00&nbsp;€</td></tr>
+            <tr><th scope="row">Umsatzsteuer 19 %</th><td class="num">339,63&nbsp;€</td><td class="num">473,96&nbsp;€</td></tr>
+            <tr class="total"><th scope="row">Eigener Anwalt gesamt</th><td class="num">2.127,13&nbsp;€</td><td class="num">2.968,46&nbsp;€</td></tr>
+            <tr><th scope="row">Gerichtskosten (KV 8210 GKG, 2,0 × 313,50&nbsp;€)</th><td class="num">627,00&nbsp;€</td><td class="num">entfällt</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Die Gerichtskosten trägt grundsätzlich die unterliegende Partei. Streiten die Parteien nur über die Länge der Frist, fällt der Streitwert regelmäßig niedriger aus, weil dann meist nur die Vergütung für den streitigen Zeitraum zählt (§&nbsp;3 ZPO). Eine Rechtsschutzversicherung deckt die Kosten meist abzüglich Selbstbeteiligung; Gewerkschaftsmitglieder erhalten oft kostenlosen Rechtsschutz. Wer die Kosten nicht tragen kann, beantragt Prozesskostenhilfe (§&nbsp;11a ArbGG, §§&nbsp;114 ff. ZPO). Die anwaltliche Erstberatung ist für Verbraucher gesetzlich gedeckelt (§&nbsp;34 RVG).</p>
+    </section>
+
+    <footer id="quellen">
+      <h2>Hinweis und Quellen</h2>
+      <p>Dieser Beitrag ist eine allgemeine Information und ersetzt keine Rechtsberatung im Einzelfall. Prüfen Sie Fristen stets anhand Ihres Vertrags und Tarifrechts. Gebührenwerte: <a href="https://www.gesetze-im-internet.de/rvg/anlage_2.html" target="_blank" rel="noopener">RVG Anlage 2</a> und <a href="https://www.gesetze-im-internet.de/gkg_2004/anlage_2.html" target="_blank" rel="noopener">GKG Anlage 2</a>; Fristen: <a href="https://freirecht.de/g/BGB:622" target="_blank" rel="noopener">§&nbsp;622 BGB bei freirecht.de</a>.</p>
+    </footer>
+  </article>
 </body>
 </html>
